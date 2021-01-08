@@ -658,3 +658,41 @@ function functionName(){
 console.log(num)                    //5
 ```
 
+## 局部作用域和函数
+
+函数里声明的变量，函数的参数，都是局部变量，他们只在函数内可见。
+
+```
+function person(age){
+   var name = "peter";
+   console.log(name + ',' + age);
+}
+
+person(12);
+console.log(peter)         //peter is not defined
+console.log(age)           //age is not defined
+```
+
+## 函数中的全局作用域和局部作用域
+
+```
+var name = "";
+function person(){
+   name = "peter";
+}
+person();
+console.log(name);         //peter
+```
+
+## 函数可以返回某个值
+
+```
+function person(){
+   var name = 'peter';
+   return name;
+}
+person();                 //'peter'
+```
+
+
+
