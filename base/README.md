@@ -44,10 +44,10 @@
 - [通过索引访问数组中的数据](base/?id=通过索引访问数组中的数据)
 - [通过索引修改数组中的数据](base/?id=通过索引修改数组中的数据)
 - [使用索引访问多维数组](base/?id=使用索引访问多维数组)
-- [使用 push() 操作数组](base/?id=使用-push()-操作数组>)
-- [使用 pop() 操作数组](base/?id=使用-pop()-操作数组>)
-- [使用 shift() 操作数组](base/?id=使用-shift()-操作数组>)
-- [使用 unshift() 操作数组](base/?id=使用-unshift()-操作数组>)
+- [使用 push() 操作数组](<base/?id=使用-push()-操作数组>>)
+- [使用 pop() 操作数组](<base/?id=使用-pop()-操作数组>>)
+- [使用 shift() 操作数组](<base/?id=使用-shift()-操作数组>>)
+- [使用 unshift() 操作数组](<base/?id=使用-unshift()-操作数组>>)
 - [购物清单](base/?id=购物清单)
 - [用函数编写可重用代码](base/?id=用函数编写可重用代码)
 - [将值传递给带有参数的函数](base/?id=将值传递给带有参数的函数)
@@ -575,7 +575,6 @@ console.log(text);                          //['one','two']
 
 `pop()` 是移除最后一个，`shift()` 是移除第一个;
 
-
 ```
 var num = ['1','2','3'];
 num.pop();                   //3
@@ -584,17 +583,14 @@ var num = ['1','2','3']
 num.shift();                 //1
 ```
 
-
 ## 使用 unshift() 操作数组
 
 在 `Javascript` 中可以移除一个元素，那么也可以添加一个元素;
-
 
 ```
 var num = ['1','2','3'];
 num.unshift('0');             //4 添加之后返回的是原数组的 length
 ```
-
 
 ## 购物清单
 
@@ -614,7 +610,6 @@ var list = [
 
 `Javascript` 中，我们把多次用到的部分提取出来，放到一个函数中；
 
-
 ```
 function functionName(){
    console.log('1')
@@ -624,8 +619,6 @@ functionName();               //1
 functionName();               //1
 functionName();               //1
 ```
-
-
 
 ## 将值传递给带有参数的函数
 
@@ -639,12 +632,11 @@ functionName('1')                   //1
 functionName('2')                   //2
 ```
 
-
 ## 全局作用域和函数
 
 作用域分 `全局作用域` 和 `局部作用域`；
 
-在 `函数外` `var` 的变量为 `全局变量`，在 `函数内`  `var` 的变量为 `局部变量`；`函数内` 没有 `var` 的变量为 `全局变量`
+在 `函数外` `var` 的变量为 `全局变量`，在 `函数内` `var` 的变量为 `局部变量`；`函数内` 没有 `var` 的变量为 `全局变量`
 
 ```
 var num =  10;                      //全局变量
@@ -694,5 +686,66 @@ function person(){
 person();                 //'peter'
 ```
 
+## 函数也可以返回 undefined
+
+```
+var sum = 0;
+function person(){
+   sum = 1 + 2;
+}
+
+person()                //undefined
+```
+
+## 用返回值来赋值
+
+```
+var sum = 0;
+function person(){
+   sum = 1 + 2;
+   return sum
+}
+person();
+```
+
+## 排队
+
+```
+var arr = [1,2,3,4,5,6]
+
+function num(items){
+   arr.push(items);
+   return arr.shift();
+}
+num(7);                 //1
+```
+
+## 理解布尔值
+
+`true` 是 "真"；
+`false` 是 “假”
+
+`布尔值` 是不带引号的，带了引号的就是 `字符串 string` 不是 `布尔值了`
+
+## 用 if 语句来表达条件逻辑
+
+```
+if( typeof 'hello' == 'string'){          //检测是否 sting 类型
+   console.log(1)
+}
+```
+
+**typeof 检测之后返回的是一个字符串**
+
+比如说 
+
+```
+typeof 2                                  //'number'
+```
 
 
+## 相等运算符
+
+```
+
+```
