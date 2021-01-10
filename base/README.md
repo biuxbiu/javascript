@@ -78,8 +78,6 @@
 - [高尔夫代码](base/?id=声明变量)
 - [使用 Switch 语句从许多选项中进行选择](base/?id=声明变量)
 - [在 Switch 语句中添加默认选项](base/?id=声明变量)
-- [在 Switch 语句添加多个相同选项](base/?id=声明变量)
-- [用一个 Switch 语句来替代多个 if else 语句](base/?id=声明变量)
 - [从函数返回布尔值](base/?id=声明变量)
 - [函数执行到 return 语句就结束](base/?id=声明变量)
 - [21 点游戏](base/?id=声明变量)
@@ -737,12 +735,11 @@ if( typeof 'hello' == 'string'){          //检测是否 sting 类型
 
 **typeof 检测之后返回的是一个字符串**
 
-比如说 
+比如说
 
 ```
 typeof 2                                  //'number'
 ```
-
 
 ## 相等运算符
 
@@ -762,7 +759,6 @@ typeof 2                                  //'number'
 1 === '1'                              //false 1 是 number，'1' 是 string
 ```
 
-
 ## 比较不同值
 
 ```
@@ -775,7 +771,7 @@ typeof 2                                  //'number'
 ```
 1 != 2                              //true
 1 != '1'                            //false
-1 != true                           //false 
+1 != true                           //false
 0 != false                          //false
 ```
 
@@ -792,7 +788,6 @@ typeof 2                                  //'number'
 3 > 2                               //true
 '1' < 9                             //true
 ```
-
 
 ## 大于或等于运算符
 
@@ -817,10 +812,9 @@ typeof 2                                  //'number'
 '8' <= 4                            //false
 ```
 
-## 
+##
 
->两个元素在比较的时候，要注意数据类型的转换。'数据类型8' 就被转化成了 '数字8'。
-
+> 两个元素在比较的时候，要注意数据类型的转换。'数据类型 8' 就被转化成了 '数字 8'。
 
 ## 逻辑与运算符
 
@@ -832,7 +826,6 @@ if(num >1 && num < 10){
    console.log(1)
 }                                   //3
 ```
-
 
 ## 逻辑或运算符
 
@@ -850,5 +843,209 @@ if(num == 3 || num == 5){
 `else` 语句用于判断 `if` 的另一个条件。
 
 ```
+var num = 5;
+if(num == 5){
+   console.log(true)
+}else{
+   console.log(false);
+}
+```
+
+## 介绍 else if 语句
+
+如果你有多个条件判断的话，这个时候会使用到 `else if`
 
 ```
+var num = 5;
+if(num == 1){
+   console.log(1)
+}else if(num == 5){
+   console.log(5)
+}else{
+   console.log('other')
+}
+```
+
+## if else 语句中的逻辑顺序
+
+语句中的逻辑顺序对判断是很重要的
+
+```
+var num = 2;
+function rNum (){
+   if(num > 0){
+      return 0
+   }else if(num == 2){
+      return 2
+   }else{
+      return 3;
+   }
+}
+rNum();                       //0
+```
+
+```
+var num = 2;
+function rNum (){
+   if(num == 2){
+      return 2
+   }else if(num > 0){
+      return 0
+   }else{
+      return 3;
+   }
+}
+rNum();                       //2
+```
+
+通过以上的例子我们可以看出，判断语句的顺序不一样，导致的结果也不一样。
+
+## 多个 if else 语句
+
+```
+var num = 2;
+if(num == 1){
+   console.log(1)
+}else if (num == 2){
+   console.log(2)
+}else if (num == 3){
+   console.log(3)
+}else{
+   console.log(0)
+}
+```
+
+## 高尔夫代码
+
+创建一个函数，传入 `标准杆数` 和 `挥杆次数` 两个参数，返回对应的水平段位
+
+| 水平       |                |
+| :--------- | :------------- |
+| 杆数       | 水平           |
+| 1          | "Hole-in-one!" |
+| <= par - 2 | "Eagle"        |
+| par - 1    | "Birdie"       |
+| par        | "Par"          |
+
+```
+var scoreNum = 0;
+function golf(par,strokes){
+   var scoreNum = strokes - par;
+   if(scoreNum == 1){
+      return "Hole-in-one!"
+   }else if (scoreNum <= par - 2) {
+      return "Eagle"
+   }else if(scoreNum = par - 1  ){
+      return "Birdie"
+   }else{
+      return "Par"
+   }
+}
+golf(3,2);                    //Eagle
+```
+
+## 使用 Switch 语句从许多选项中进行选择
+
+方法：
+
+```
+switch(result){
+   case value:
+      doing something here
+      break;
+   case value:
+      doing something here
+      break;
+   default:
+      dogin something here
+}
+```
+
+假如有不同的值对应不同的结果，这个时候我们可以使用 `switch` 方法来解决
+
+```
+var scoreNum = 1;
+switch(scoreNum){
+   case 1:
+      console.log(1);
+      break;
+   case 2:
+      console.log(2);
+      break;
+   default:
+      console.log(3)
+}
+```
+
+!>没有 `break` 的话符合条件后面的语句也会执行。有 `break` 的话条件成立就会马上停止。
+
+## 在 Switch 语句中添加默认选项
+
+`switch` 中的默认选项相类似 `if else` 中的 `else`
+
+```
+var num = 1;
+switch(num){
+   case 2;
+      console.log(2)
+   defaul:
+      console.log(1)
+}
+```
+
+```
+var nunm = 1;
+if(num == 2){
+   console.log(2)
+}else{
+   console.log(1)
+}
+```
+
+## 从函数返回布尔值
+
+```
+function isEqual(a,b){
+   if(a === b){
+      return true;
+   }else{
+      return false
+   }
+}
+isEqual();
+```
+
+**可以优化成以下**
+
+```
+function isEqual(a,b){
+   return a === b;
+}
+isEqual();
+```
+
+## 函数执行到 return 语句就结束
+
+在函数中，当代码执行到 `return` 就会结束
+
+```
+function funNum(){
+   console.log(1)
+   console.log(2)
+   return;
+}
+funNum();                     //1 2
+```
+
+```
+function funNum(){
+   return;
+   console.log(1)
+   console.log(2)   
+}
+funNum();                  //这里没有输出任何东西
+```
+
+!>为什么我的函数返回的是一个 `undefined`？
+
+因为没有返回值。
