@@ -1,6 +1,6 @@
 - <a href="http://www.biuxbiu.design/#/" target="_blank"><img class="logo" src="img/logo.png" /></a>
 
-* [Git ](base/#Git)
+* [Javascript ](base/#Javascript)
     * [给代码添加注释](base/?id=给代码添加注释)
     * [声明变量](base/?id=声明变量)
     * [使用赋值运算符存储值](base/?id=使用赋值运算符存储值)
